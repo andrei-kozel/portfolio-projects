@@ -2,7 +2,7 @@ This is my simple project written with Vue.js. Just for practice purposes.
 
 Check: https://www.breakingbadapi.com/
 
-![shop-vue](https://github.com/andrei-kozel/breaking-bad-vue/blob/master/src/assets/screen.png)
+![shop-vue](https://github.com/andrei-kozel/portfolio-project/blob/master/Vue/breaking-bad/src/assets/screen.png)
 
 ## Project setup
 
