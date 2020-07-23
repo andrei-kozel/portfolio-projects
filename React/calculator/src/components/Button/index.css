@@ -1,0 +1,39 @@
+.button {
+  width: 80px;
+  height: 80px;
+  background-color: #ccc;
+  margin: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 30px;
+  transition: all 0.2s ease-in-out;
+}
+
+.button:hover {
+  color: aliceblue;
+  background-color: #a3a3a3;
+  cursor: pointer;
+}
+
+.button-ac {
+  width: 170px;
+  background-color: #f44c4e;
+  grid-column-start: 1;
+  grid-column-end: 3;
+}
+
+.button-0 {
+  width: 170px;
+  grid-column-start: 1;
+  grid-column-end: 3;
+}
+
+.button-equal {
+  height: 170px;
+  background-color: #f44c4e;
+  grid-row-start: 4;
+  grid-row-end: 7;
+  grid-column-start: 4;
+  grid-column-end: 5;
+}
