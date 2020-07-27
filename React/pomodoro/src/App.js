@@ -8,7 +8,9 @@ function App() {
     <React.Fragment>
       <div className="container">
         <p>Navigation goes here</p>
-        <Circle />
+        <div>
+          <Circle />
+        </div>
         <p>Footer goes here</p>
       </div>
     </React.Fragment>

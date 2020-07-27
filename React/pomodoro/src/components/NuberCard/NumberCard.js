@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import './NumberCard.css'
 
 const NumberCard = (props) => {
@@ -36,7 +36,7 @@ const NumberCard = (props) => {
           autoFocus
         />
       ) : (
-        <span onClick={changeInput}>{props.value}</span>
+        <span onClick={changeInput}>{props.text}</span>
       )}
     </div>
   )
