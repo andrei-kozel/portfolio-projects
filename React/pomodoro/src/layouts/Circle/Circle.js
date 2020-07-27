@@ -4,15 +4,17 @@ import moment from 'moment'
 
 import { useInterval } from '../../hooks/useInterval'
 
-import NumberCard from '../NumberCard/NumberCard'
-import PlayPauseButton from '../Buttons/PlayPauseButton'
-import SettingsButton from '../Buttons/SettingsButton'
+import NumberCard from '../../components/NumberCard/NumberCard'
+import PlayPauseButton from '../../components/Buttons/PlayPauseButton'
+import SettingsButton from '../../components/Buttons/SettingsButton'
+import Modal from '../../components/Modal/Modal'
+import Settings from '../Settings/Settings'
 
 const Circle = () => {
   const [settings, setSettings] = useState({
     minutes: '25',
     seconds: '00',
-    restTime: '05'
+    restTime: '5'
   })
   const [minutes, setMinutes] = useState()
   const [seconds, setSeconds] = useState()
@@ -20,6 +22,7 @@ const Circle = () => {
   const [restTime, setRestTime] = useState()
   const [mode, setMode] = useState('session')
   const [isRunning, setIsRunning] = useState(false)
+  const [isSettingsOpen, setIsSettingsOpen] = useState(false)
 
   const handleChangeValue = (type, value) => {
     value = value.replace(/[^0-9]/g, '')
@@ -29,6 +32,9 @@ const Circle = () => {
         break
       case 'SECONDS':
         setSettings({ ...settings, seconds: value })
+        break
+      case 'REST':
+        setSettings({ ...settings, restTime: value })
         break
       default:
         break
@@ -61,8 +67,22 @@ const Circle = () => {
     }
   }, [mode, restTime, sessionTime, settings.minutes, settings.seconds])
 
+  const openModal = () => {
+    console.log('Open')
+    setIsSettingsOpen(true)
+  }
+
   return (
     <React.Fragment>
+      {isSettingsOpen ? (
+        <Modal>
+          <Settings
+            settings={settings}
+            changed={handleChangeValue}
+            close={() => setIsSettingsOpen(false)}
+          />
+        </Modal>
+      ) : null}
       <div
         className={['circle', mode === 'session' ? 'work' : 'rest'].join(' ')}>
         <div className="info-container">
@@ -91,7 +111,7 @@ const Circle = () => {
           isRunning={isRunning}
         />
         <div className="settings">
-          <SettingsButton />
+          <SettingsButton openSettings={openModal} />
         </div>
       </div>
     </React.Fragment>

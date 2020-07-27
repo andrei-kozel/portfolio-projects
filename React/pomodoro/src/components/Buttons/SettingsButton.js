@@ -5,7 +5,7 @@ import './index.css'
 const SettingsButton = (props) => {
   return (
     <div className="settings-btn-container">
-      <FiSettings className="settings-btn" />
+      <FiSettings className="settings-btn" onClick={props.openSettings} />
     </div>
   )
 }

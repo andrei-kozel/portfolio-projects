@@ -2,7 +2,7 @@ import React from 'react'
 import './App.css'
 
 import Header from './components/Header/Header'
-import Circle from './components/Circle/Circle'
+import Circle from './layouts/Circle/Circle'
 import Footer from './components/Footer/Footer'
 
 function App() {
