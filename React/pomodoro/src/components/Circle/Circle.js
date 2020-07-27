@@ -4,8 +4,9 @@ import moment from 'moment'
 
 import { useInterval } from '../../hooks/useInterval'
 
-import NumberCard from '../NuberCard/NumberCard'
-import Button from '../Button/Button'
+import NumberCard from '../NumberCard/NumberCard'
+import PlayPauseButton from '../Buttons/PlayPauseButton'
+import SettingsButton from '../Buttons/SettingsButton'
 
 const Circle = () => {
   const [settings, setSettings] = useState({
@@ -61,33 +62,39 @@ const Circle = () => {
   }, [mode, restTime, sessionTime, settings.minutes, settings.seconds])
 
   return (
-    <div className={['circle', mode === 'session' ? 'work' : 'rest'].join(' ')}>
-      <div className="info-container">
-        <div className="info">i</div>
-      </div>
-      <div className="timer">
-        <NumberCard
-          type="MINUTES"
-          value={settings.minutes}
-          changed={handleChangeValue}
-          text={minutes}
-          editable={isRunning}
+    <React.Fragment>
+      <div
+        className={['circle', mode === 'session' ? 'work' : 'rest'].join(' ')}>
+        <div className="info-container">
+          <div className="info">i</div>
+        </div>
+        <div className="timer">
+          <NumberCard
+            type="MINUTES"
+            value={settings.minutes}
+            changed={handleChangeValue}
+            text={minutes}
+            editable={isRunning}
+          />
+          <span>:</span>
+          <NumberCard
+            type="SECONDS"
+            value={settings.seconds}
+            changed={handleChangeValue}
+            text={seconds}
+            editable={isRunning}
+          />
+        </div>
+        <PlayPauseButton
+          playButton={() => setIsRunning(true)}
+          pauseButton={() => setIsRunning(false)}
+          isRunning={isRunning}
         />
-        <span>:</span>
-        <NumberCard
-          type="SECONDS"
-          value={settings.seconds}
-          changed={handleChangeValue}
-          text={seconds}
-          editable={isRunning}
-        />
+        <div className="settings">
+          <SettingsButton />
+        </div>
       </div>
-      <Button
-        playButton={() => setIsRunning(true)}
-        pauseButton={() => setIsRunning(false)}
-        isRunning={isRunning}
-      />
-    </div>
+    </React.Fragment>
   )
 }
 

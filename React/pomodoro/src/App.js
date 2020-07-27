@@ -1,17 +1,17 @@
 import React from 'react'
 import './App.css'
 
+import Header from './components/Header/Header'
 import Circle from './components/Circle/Circle'
+import Footer from './components/Footer/Footer'
 
 function App() {
   return (
     <React.Fragment>
       <div className="container">
-        <p>Navigation goes here</p>
-        <div>
-          <Circle />
-        </div>
-        <p>Footer goes here</p>
+        <Header />
+        <Circle />
+        <Footer />
       </div>
     </React.Fragment>
   )

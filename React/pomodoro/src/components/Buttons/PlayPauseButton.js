@@ -1,7 +1,7 @@
 import React from 'react'
 import { FaPlay, FaPause } from 'react-icons/fa'
 
-const Button = (props) => {
+const PlayPauseButton = (props) => {
   let playPauseButton = (
     <button className="button" onClick={props.playButton}>
       <FaPlay className="icon" />
@@ -19,4 +19,4 @@ const Button = (props) => {
   return <div className="button-container">{playPauseButton}</div>
 }
 
-export default Button
+export default PlayPauseButton
