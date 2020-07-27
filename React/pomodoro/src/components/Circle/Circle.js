@@ -71,6 +71,7 @@ const Circle = () => {
           value={settings.minutes}
           changed={handleChangeValue}
           text={minutes}
+          editable={isRunning}
         />
         <span>:</span>
         <NumberCard
@@ -78,6 +79,7 @@ const Circle = () => {
           value={settings.seconds}
           changed={handleChangeValue}
           text={seconds}
+          editable={isRunning}
         />
       </div>
       <Button

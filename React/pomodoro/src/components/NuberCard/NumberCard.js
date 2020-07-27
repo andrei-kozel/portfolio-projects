@@ -8,9 +8,6 @@ const NumberCard = (props) => {
     if (value === '') {
       return '00'
     }
-    if (value >= 60) {
-      return '59'
-    }
     return value
   }
 
@@ -36,7 +33,7 @@ const NumberCard = (props) => {
           autoFocus
         />
       ) : (
-        <span onClick={changeInput}>{props.text}</span>
+        <span onClick={!props.editable ? changeInput : null}>{props.text}</span>
       )}
     </div>
   )
